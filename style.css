@@ -1,0 +1,1007 @@
+*{
+    box-sizing: border-box;
+}
+
+/*font-family: 'Antonio', sans-serif;
+font-family: 'Yanone Kaffeesatz', sans-serif;*/
+body{
+    background-color:rgb(0, 0, 0);
+}
+:root{
+    --contenido_oscuro: rgb(107, 107, 107);
+    --contenido_claro: rgb(158, 158, 116);
+    --titulo:white;
+    --texto:white;
+    --botones_claros:white;
+    --botones_oscuros: rgb(129, 129, 129);
+    --controlador_length: 70%;
+    --color_icon: rgb(97, 97, 97);
+    --barra_nav:rgb(56, 56, 56);
+}
+#container{
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: repeat(
+    auto-fill,    
+    minmax(250px, 1fr)
+        );/*tamaños fr = fracciones*/
+    grid-template-rows: repeat(4, 1fr); /*define el tamaño de las primeras filas */
+    grid-auto-rows: 150px; /*define el tamaño que automaticas genera despues de las primeras filas*/
+    gap: 15px;
+    height: 100vh;
+}
+@media (width > 450px){
+    body{
+        background-color:rgb(0, 0, 0);
+    }
+    #container{
+        grid-template-columns: repeat(3,1fr);   
+    }
+    #container .caja_perfil{
+        grid-column: 1/2;
+        grid-row:1/3;
+    }
+    #container .caja_cambio{
+        grid-column: 1/2;
+        grid-row:1/3;
+    }
+    #container div:nth-child(3), #container div:nth-child(4){
+        grid-column-start: span 1;
+        grid-row-start: span 1;
+    }
+    #container div:nth-child(5){
+        grid-column-start: span 2;
+        grid-row-start: span 1;
+    }
+    #container div:nth-child(6), #container div:nth-child(7), #container div:nth-child(8){
+        grid-column-start: span 1;
+        grid-row-start: span 2;
+    }
+}
+#container div{
+    border: 2px solid rgb(55, 55, 55);
+    border-radius: 10px;
+}
+#container .caja_perfil{
+    grid-column: 1/2;
+    grid-row:1/3;
+    z-index: 2;
+    display:grid;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    background-image: url(img/bg.png);
+    background-position: center;
+    background-blend-mode:multiply;
+    background-color: var(--contenido_oscuro);
+    cursor: pointer;
+}
+#container .caja_perfil .perfil{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s ease;
+    opacity: 1; 
+}
+#container .caja_perfil .perfil h2{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin:10px 0px 0px 0px;
+    width: fit-content;
+    border-bottom: #000000 6px solid;
+}
+#container .caja_perfil:hover{
+    background-image: none;
+    background-color: rgba(240, 248, 255, 0);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    border: 1px #d8c22f solid;
+}
+#container .caja_perfil .perfil:hover{
+    opacity: 0;
+    transform: scale(1.5);
+    transition: 0.5s ease-in-out;
+}
+#container .caja_perfil .perfil img{
+    width:50%;
+    object-fit: contain;
+}
+#container .caja_cambio{
+    grid-column: 1/2;
+    grid-row:1/3;
+    display:grid;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    background-image: url(img/bg.png);
+    background-position: center;
+    background-blend-mode:multiply;
+    background-color: var(--contenido_claro);
+    position: relative;
+}
+#container .caja_cambio .cambio{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#container .caja_cambio .cambio h2{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    margin:10px 0px 0px 0px;
+    width: fit-content;
+    color: white;
+    border-bottom: #d8c22f 6px solid;
+}
+#container .caja_cambio .cambio img{
+    width:50%;
+    object-fit: contain;
+}
+
+
+#container .habilidades{
+    text-transform: uppercase;
+    background-color: var(--contenido_oscuro);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    word-break:break-all;
+    transition: 0.3s ease-in-out;   
+}
+#container .habilidades:hover{
+    background-color: var(--contenido_claro);
+    color: var(--titulo);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    border: 1px yellow solid;
+    text-shadow: 2px 2px 10px black;
+}
+#container .habilidades span:hover{
+    color: #d8c22f;
+    filter:blur(0px) brightness(1);
+    transition: 0.3s ease-in-out;
+    text-shadow: none;
+}
+#container .habilidades h2:hover{
+    cursor:pointer;
+    border-bottom: #d8c22f 10px solid;   
+    transition: 0.3s ease-in-out;
+}
+#container .habilidades span{
+    position: absolute;
+    top: -45px;
+    left: -80px;
+    margin: 0px;
+    filter:blur(10px) brightness(0.6);
+    font-size: 500px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+    word-break: normal;
+    transition: 0.3s ease-in-out;
+}
+
+#container .habilidades h2{
+    text-transform: uppercase;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    z-index: 3;
+}
+
+
+
+
+#container .contacto{
+    text-transform: uppercase;
+    background-color: var(--contenido_oscuro);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    word-break:break-all;
+    transition: 0.3s ease-in-out;
+}
+#container .contacto:hover{
+    background-color: var(--contenido_claro);
+    color: var(--titulo);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    border: 1px yellow solid;
+    text-shadow: 2px 2px 10px black;
+}
+#container .contacto span:hover{
+    color: #d8c22f;
+    filter:blur(0px) brightness(1);
+    transition: 0.3s ease-in-out;
+    text-shadow: none;
+}
+#container .contacto h2:hover{
+    cursor:pointer;
+    border-bottom: #d8c22f 10px solid;   
+    transition: 0.3s ease-in-out;
+}
+#container .contacto span{
+    position: absolute;
+    top: -45px;
+    left: -80px;
+    margin: 0px;
+    filter:blur(10px) brightness(0.6);
+    font-size: 500px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+    word-break: normal;
+    transition: 0.3s ease-in-out;
+}
+#container .contacto h2{
+    text-transform: uppercase;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    z-index: 3;
+}
+
+
+
+
+
+#container .proyectos{
+    text-transform: uppercase;
+    background-color: var(--contenido_oscuro);
+    position: relative;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+    word-break:break-all;
+    transition: 0.3s ease-in-out;
+}
+#container .proyectos:hover{
+    background-color: var(--contenido_claro);
+    color: var(--titulo);
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    border: 1px yellow solid;
+    text-shadow: 2px 2px 10px black;
+}
+#container .proyectos span:hover{
+    color: #d8c22f;
+    filter:blur(0px) brightness(1);
+    transition: 0.3s ease-in-out;
+    text-shadow: none;
+}
+#container .proyectos h2:hover{
+    cursor:pointer;
+    border-bottom: #d8c22f 10px solid;   
+    transition: 0.3s ease-in-out;
+}
+#container .proyectos span{
+    position: absolute;
+    top: -45px;
+    left: -80px;
+    margin: 0px;
+    filter:blur(10px) brightness(0.6);
+    font-size: 500px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    color: white;
+    z-index: 2;
+    word-break: normal;
+    transition: 0.3s ease-in-out;
+}
+#container .proyectos h2{
+    text-transform: uppercase;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 4rem;
+    z-index: 3;
+}
+
+
+
+#container .muestra_uno {
+   background-color: black;
+   transition: 0.3s ease-in-out;
+}
+#container .muestra_uno:hover {
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    background-color: var(--contenido_oscuro);
+}
+#container .muestra_uno video{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    transition: 0.3s ease-in-out;
+}
+
+
+#container .muestra_dos{
+    position: relative;
+    background-color: black;
+    transition: 0.3s ease-in-out;
+}
+
+#container .muestra_dos:hover{
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    background-color: var(--contenido_oscuro);
+}
+#container .muestra_dos .ficha{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    width: 110px;
+    height: 140px;
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+#container .muestra_dos .ficha img{
+    object-fit:cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+#container .muestra_dos img{
+    object-fit:contain;
+    width: 100%;
+    height: 100%;
+}
+
+
+#container .muestra_tres:hover{
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 20px 8px #d8c22f;
+    background-color: var(--contenido_oscuro);
+}
+#container .muestra_tres{
+    position: relative;
+}
+#container .muestra_tres .ficha_tres{
+    position:absolute;
+    bottom: 0;
+    right: 0;
+    width: 110px;
+    height: 140px;
+    border-radius: 10px;
+}
+#container .muestra_tres img{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+/*styles ventanas modales*/
+.modales{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    z-index: 5;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+.open{
+    display: flex;
+    transition: opacity .6s;
+    pointer-events: unset;
+}
+.modales .modal_perfil{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    background-color:rgb(12, 12, 31);
+}
+.modales .modal_perfil header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    max-height: 70px;
+    background-color: var(--barra_nav);
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+}
+.modales .modal_perfil header:hover{
+    box-shadow: 0px 8px 20px black;
+}
+.modales .modal_perfil header nav ol{
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    padding: 0px;
+}
+.modales .modal_perfil header nav ol li{
+    display: inline-flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    font-family: 'Antonio', sans-serif;
+    text-transform: uppercase;
+    font-size:larger;
+    text-decoration: none;
+    height: fit-content;
+    color: rgb(120, 120, 120);
+}
+.modales .modal_perfil header nav ol .back{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    color: rgb(57, 57, 57);
+}
+.modales .modal_perfil header nav ol .back:hover{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+}
+.modales .modal_perfil header nav ol li:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+    color: var(--botones_claros);
+    border-bottom: 2px solid #d8c22f;
+    padding: 0px;
+}
+
+
+
+
+.modales .modal_perfil aside{
+    height: 90vh;
+    width: 100%;
+    min-width: 400px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content:center;
+    justify-content: center;
+}
+.modales .modal_perfil .contenido{
+    width: 60%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+}
+.modales .modal_perfil .contenido .contenido_texto{
+    width: 100%;
+    align-content:center;
+    padding: 0px 30px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+}
+.modales .modal_perfil .contenido  .contenido_texto h1{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: bold;
+    font-size: 5rem;
+    margin: 0px 0px 30px 0px;
+    color: var(--titulo);
+}
+@media (width < 787px) {
+    .modales .modal_perfil .contenido  .contenido_texto h1{
+        font-size: 3.5rem
+    }
+}
+.modales .modal_perfil .contenido .contenido_texto p{
+    color: var(--texto);
+    margin: 0px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.modales .modal_perfil .img{
+    align-items: center;
+    justify-content: center;
+    width: 40%;
+}
+.modales .modal_perfil .img .container_img{
+    width: 70%;
+
+}
+.modales .modal_perfil .img .container_img img{
+    object-fit: contain;
+    width: 100%;
+}
+
+/*ventana habilidades*/
+
+.modal_habilidades{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;  
+    height: 100vh; 
+    overflow: hidden;
+    background-color:rgb(12, 12, 31);
+    z-index: 5;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+.open{
+    display: flex;
+    transition: opacity .6s;
+    pointer-events: unset;
+    flex-direction: column;
+}
+.modal_habilidades header{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    max-height: 70px;
+    background-color: var(--barra_nav);
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+}
+.modal_habilidades header:hover{
+    box-shadow: 0px 8px 20px black;
+}
+.modal_habilidades header nav ol{
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    padding: 0px;
+}
+.modal_habilidades header nav ol li{
+    display: inline-flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    font-family: 'Antonio', sans-serif;
+    text-transform: uppercase;
+    font-size:larger;
+    text-decoration: none;
+    height: fit-content;
+    color: rgb(120, 120, 120);
+}
+.modal_habilidades header nav ol .back_2{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    color: rgb(57, 57, 57);
+}
+.modal_habilidades header nav ol .back_2:hover{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+}
+.modal_habilidades header nav ol li:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+    color: var(--botones_claros);
+    border-bottom: 2px solid #d8c22f;
+    padding: 0px;
+}
+
+
+.modal_habilidades .caja_habilidades{
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);/* repeat(
+    auto-fill,    
+    minmax(300px, 1fr)
+        );*/
+    grid-template-rows: repeat(5, 1fr);
+    width: 100%;
+    height:91vh;
+    gap: 10px;
+    margin-top: 10px;
+}
+.modal_habilidades .caja_habilidades .personaje{
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 1/4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+}
+.modal_habilidades .caja_habilidades .personaje .contenedor_img{
+    grid-row: 1/4;
+    grid-column: 2/4;
+    width: 100%;
+    height: 100%;
+}
+.modal_habilidades .caja_habilidades .personaje .contenedor_img img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_1{
+    grid-row: 1/1;
+    grid-column: 1/1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_1 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_1 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_1 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_2{
+    grid-row: 2/2;
+    grid-column: 1/1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_2 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_2 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_2 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_3{
+    grid-row: 3/3;
+    grid-column: 1/1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_3 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_3 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_3 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);    
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_4{
+    grid-row: 4/4;
+    grid-column: 1/1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);    
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_5{
+    grid-row: 1/1;
+    grid-column: 4/4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_5 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_5 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_5 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);    
+}.modal_habilidades .caja_habilidades .personaje .casilla_6{
+    grid-row: 2/2;
+    grid-column: 4/4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_6 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_6 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_6 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);    
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_7{
+    grid-row: 3/3;
+    grid-column: 4/4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_7 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_7 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_7 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon); 
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_8{
+    grid-row: 4/4;
+    grid-column: 4/4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor{
+    width: 45px;
+    height: 45px;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor img:hover{
+    transform: scale(1.5);
+    box-shadow: 0px 0px 20px var(--color_icon);    
+}
+.modal_habilidades .caja_habilidades .level{
+    grid-row: 4/4;
+    grid-column: 2/4;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+.modal_habilidades .caja_habilidades .level .card_title{
+    font-size: 1.8rem;
+    margin: 0px;   
+    color: white;
+}
+.modal_habilidades .caja_habilidades .level .barra{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+.modal_habilidades .caja_habilidades .level .barra h2{
+    color: white;
+    margin: 0px;
+    width: 100%;
+}
+.modal_habilidades .caja_habilidades .level .barra p{
+    color:white;
+    margin: 0px;
+    font-size: 2rem;
+    margin-right: 8px;
+}
+.modal_habilidades .caja_habilidades .level .barra .controlador, .modal_habilidades .caja_habilidades .level .barra .controlador::after{
+    width: 300px;
+    height: 20px;
+    background-color: #bebebe89;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.modal_habilidades .caja_habilidades .level .barra .controlador::after{
+    content: "";
+    position: absolute;
+    left: -300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.controlador_2::after{
+    transform: translateX(0%);
+}
+@keyframes barra {
+    to{
+        transform: translateX(var(--controlador_length));
+    }
+}
+
+/*inventario*/
+
+.modal_habilidades .caja_habilidades .inventario{
+    width: 100%;
+    height: 100%;
+    grid-column: 3/5;
+    grid-row: 1/4;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    background-color:rgb(44, 43, 43) ;
+    border-radius: 10px;
+    justify-items: center;
+    gap: 10px;
+}
+.modal_habilidades .caja_habilidades .inventario h2{
+    margin: 0px;
+    grid-row: 1/1;
+    grid-column: 1/5;
+    height: 100%;
+    text-align: center;
+    font-size: 2rem;
+    text-transform: uppercase;
+    display: grid;
+    place-items: center;
+    color: white;
+    justify-self: stretch;
+    background-color: rgb(16, 13, 13);
+    
+}
+.modal_habilidades .caja_habilidades .inventario .caja_uno{
+    width: 60%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: #000000 2px solid;
+    background-color: #000000;
+    border-radius: 10px;
+}
+.modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno{
+    width:100%;
+    height:100%;
+    display: grid;
+    place-items: center;
+}
+.modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno:hover{
+    box-shadow: 0px 0px 20px var(--color_icon);
+}
+.modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno img{
+    width: 60%;
+    height: 60%;
+    object-fit: contain;
+}
+
+/*datos grafico*/
+
+.modal_habilidades .caja_habilidades .level_personal{
+    width: 100%;
+    min-height: 100%;
+    grid-column:1/3;
+    grid-row: 4/6;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px;
+    align-items: center;
+    align-content: space-evenly;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno{
+    width: 50%;
+    height: 30px;
+    margin: 0px;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    justify-content:space-around;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .level_title{
+    font-size: 1rem;
+    margin: 0px;   
+    width: 50%;
+    text-align: center;
+    color: white;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso{
+    margin: 0px;
+    width: 50%;
+    
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso p{
+    color: black;
+    margin: 0px;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso div{
+    color: black;
+    margin: 0px;
+    font-size: 2rem;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso div, .modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso div::after{
+    width: 150px;
+    height: 8px;
+    background-color: #bebebe89;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso div::after{
+    content: "";
+    position: absolute;
+    left: -150px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.level_personal .level_personal_uno .progreso div::after{
+    transform: translateX(0%);
+}
