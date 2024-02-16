@@ -212,10 +212,12 @@ body{
     background-color: var(--contenido_oscuro);
     position: relative;
     overflow: hidden;
-    display: grid;
-    place-items: center;
-    word-break:break-all;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     transition: 0.3s ease-in-out;
+    padding: 10px;
 }
 #container .contacto:hover{
     background-color: var(--contenido_claro);
@@ -224,17 +226,14 @@ body{
     box-shadow: 0px 0px 20px 8px #d8c22f;
     border: 1px yellow solid;
     text-shadow: 2px 2px 10px black;
+    align-items: start;
 }
 #container .contacto span:hover{
     color: #d8c22f;
     filter:blur(0px) brightness(1);
     transition: 0.3s ease-in-out;
     text-shadow: none;
-}
-#container .contacto h2:hover{
-    cursor:pointer;
-    border-bottom: #d8c22f 10px solid;   
-    transition: 0.3s ease-in-out;
+    pointer-events:unset;
 }
 #container .contacto span{
     position: absolute;
@@ -249,17 +248,48 @@ body{
     z-index: 2;
     word-break: normal;
     transition: 0.3s ease-in-out;
+    pointer-events: none;
 }
 #container .contacto h2{
     text-transform: uppercase;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-weight: bold;
     font-size: 4rem;
+    text-align: center;
     z-index: 3;
+    margin: 0px;
+    width: 100%;
 }
-
-
-
+#container .contacto button{
+    height: 40px;
+    background-color: #000000;
+    border-radius: 10px;
+    z-index: 5;
+    color: white;
+    align-items: center;
+    justify-content:center;
+    gap: 10px;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    position: relative;
+}
+#container .contacto button a{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    z-index: 6;
+    cursor: pointer;
+}
+#container .contacto button i{
+    font-size: 20px;
+}
+#container .contacto button p{
+    text-decoration: none;
+    font-style: none;
+    color: #ffffff;
+}
 
 
 #container .proyectos{
@@ -630,7 +660,7 @@ body{
     width: 100%;
     height:91vh;
     gap: 10px;
-    margin-top: 10px;
+    padding: 10px;
 }
 .modal_habilidades .caja_habilidades .personaje{
     width: 100%;
@@ -639,6 +669,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
+    place-items: center;
 }
 .modal_habilidades .caja_habilidades .personaje .contenedor_img{
     grid-row: 1/4;
@@ -654,8 +685,8 @@ body{
 .modal_habilidades .caja_habilidades .personaje .casilla_1{
     grid-row: 1/1;
     grid-column: 1/1;
-    width: 100%;
-    height: 100%;
+    width: 60%;
+    height: 90%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1004,4 +1035,248 @@ body{
 }
 .level_personal .level_personal_uno .progreso div::after{
     transform: translateX(0%);
+}
+
+
+/*trabajo personal*/
+
+
+.trabajos{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;  
+    height: 100vh; 
+    overflow: hidden;
+    background-color:rgb(12, 12, 31);
+    z-index: 5;
+    opacity: 1;
+    pointer-events: none;
+    transition: opacity .6s;
+}
+.open{
+    display: grid;
+    align-items: start;
+    transition: opacity .6s;
+    pointer-events: unset;
+    flex-direction: column;
+}
+.trabajos header{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 65px;
+    max-height: 70px;
+    background-color: var(--barra_nav);
+    transition: all 0.4s ease-in-out;
+    z-index: 10;
+}
+.trabajos header:hover{
+    box-shadow: 0px 8px 20px black;
+}
+.trabajos header nav ol{
+    list-style: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 90px;
+    padding: 0px;
+}
+.trabajos header nav ol li{
+    display: inline-flex;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    font-family: 'Antonio', sans-serif;
+    text-transform: uppercase;
+    font-size:larger;
+    text-decoration: none;
+    height: fit-content;
+    color: rgb(120, 120, 120);
+}
+.trabajos header nav ol .back_3{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    color: rgb(57, 57, 57);
+}
+.trabajos header nav ol .back_3:hover{
+    background-color: #d8c22f;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+}
+.trabajos header nav ol li:hover{
+    transform: scale(1.3);
+    cursor: pointer;
+    color: var(--botones_claros);
+    border-bottom: 2px solid #d8c22f;
+    padding: 0px;
+}
+/*contenido*/
+
+.trabajos .caja_trabajo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+.trabajos .caja_trabajo .contenido{
+    grid-area: 2 / 1 / 5 / 5;
+    background-color: #d8c22f; 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    place-items: center;
+    
+}
+.trabajos .caja_trabajo .contenido .comienzo{
+    grid-area: 1 / 1 / 5 / 4;
+    background-color: rebeccapurple;
+    position: relative;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+}
+.trabajos .caja_trabajo .contenido .comienzo .titulo{
+    position: absolute;
+    width: 200px;
+    height: 80px;
+    border: 2px solid red;
+    background-color: #d8c22f;
+    top: -60px;
+    display: grid;
+    place-items: center;
+}
+.trabajos .caja_trabajo .contenido .comienzo .titulo .titulo_sale{
+    color: #ffffff;
+    background-color: #d8c22f;
+    text-align: center;
+}
+.trabajos .caja_trabajo .contenido .comienzo .titulo_contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 50%;
+    border: red 2px solid;
+    text-align:start;
+}
+.trabajos .caja_trabajo .contenido .comienzo .titulo_contenido .uno{
+    border: red 2px solid;
+    margin: 0px;
+    padding: 0px;
+    font-size: 8rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+}
+.trabajos .caja_trabajo .contenido .comienzo .titulo_contenido .dos{
+    border: red 2px solid;
+    margin: -60px 0px 0px 0px;
+    padding: 0px;
+    font-size: 9rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+}
+.trabajos .caja_trabajo .contenido .comienzo .info{
+    width: 30%;
+    text-align: center;
+    align-self: center;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
+    font-weight: bolder;
+    outline: red 2px solid;
+}
+.trabajos .caja_trabajo .contenido .comienzo .info h3{
+    font-size: 5rem;
+    margin: 10px 0px 0px 0px;
+    border-bottom: #000000 15px solid;
+}
+.trabajos .caja_trabajo .contenido .comienzo .info .tema{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 2rem;
+    margin: 10px 0px 0px 0px;
+}
+
+
+.trabajos .caja_trabajo .contenido .comienzo .rating{
+    position: absolute;
+    width: 300px;
+    height: 180px;
+    border: 2px solid red;
+    background-color: #d8c22f;
+    bottom: -130px;
+    display: grid;
+    place-items: center;   
+}
+
+
+.trabajos .caja_trabajo .muestra {
+    grid-area: 2 / 4 / 5 / 6;
+    border: red 2px solid;
+    scale: 1.3;
+}
+
+
+/*barra dificultad*/
+.modal_habilidades .caja_habilidades .level .barra{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+.modal_habilidades .caja_habilidades .level .barra h2{
+    color: white;
+    margin: 0px;
+    width: 100%;
+}
+.modal_habilidades .caja_habilidades .level .barra p{
+    color:white;
+    margin: 0px;
+    font-size: 2rem;
+    margin-right: 8px;
+}
+.modal_habilidades .caja_habilidades .level .barra .controlador, .modal_habilidades .caja_habilidades .level .barra .controlador::after{
+    width: 300px;
+    height: 20px;
+    background-color: #bebebe89;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+.modal_habilidades .caja_habilidades .level .barra .controlador::after{
+    content: "";
+    position: absolute;
+    left: -300px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.controlador_2::after{
+    transform: translateX(0%);
+}
+@keyframes barra {
+    to{
+        transform: translateX(var(--controlador_length));
+    }
 }
