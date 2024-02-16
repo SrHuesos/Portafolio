@@ -25,3 +25,18 @@ close_Ventana.addEventListener('click', (e)=>{
     e.preventDefault();
     show_habilidades.classList.remove('open');
 });
+
+/*ventana proyectos*/
+
+const abrir_habilidades = document.querySelector('.proyectos');
+const mostrar_habilidades = document.querySelector('.trabajos');
+const cerrar_Ventana = document.querySelector('.back_3');
+
+abrir_habilidades.addEventListener('click', (e)=>{
+    e.preventDefault();
+    mostrar_habilidades.classList.add('open');
+});
+cerrar_Ventana.addEventListener('click', (e)=>{
+    e.preventDefault();
+    mostrar_habilidades.classList.remove('open');
+});
