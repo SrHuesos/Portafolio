@@ -76,11 +76,35 @@ body{
     align-items: center;
     align-content: center;
     justify-items: center;
-    background-image: url(img/bg.png);
-    background-position: center;
-    background-blend-mode:multiply;
+    background:
+      conic-gradient(at 62.5% 12.5%, #b2b2b2 25%, #0000 0) calc(92px/-8) calc(92px/2),
+      conic-gradient(at 62.5% 12.5%, #b2b2b2 25%, #0000 0) calc(-3*92px/8) calc(92px/4),
+      conic-gradient(at 87.5% 62.5%, #b2b2b2 25%, #0000 0) calc(3*92px/8) calc(92px/4),
+      conic-gradient(at 87.5% 62.5%, #b2b2b2 25%, #0000 0) calc(92px/-8) 0,
+      conic-gradient(at 25% 12.5%, #b2b2b2 25%, #0000 0) 0 calc(92px/-4),
+      conic-gradient(at 25% 12.5%, #b2b2b2 25%, #0000 0) calc(92px/-4) 0,
+      conic-gradient(at 87.5% 87.5%, #b2b2b2 25%, #0000 0) calc(92px/8) 0 #e5e5e5;
+    background-size: 92px 92px;
     background-color: var(--contenido_oscuro);
     cursor: pointer;
+    z-index: 2;
+    position: relative;
+    transition: 0.3s ease-in-out;
+}
+#container .caja_perfil:hover{
+    opacity: 0;
+    transition: 0.5s ease-in-out;
+    backdrop-filter: blur(0px);
+}
+#container .caja_perfil::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 0, 0, 0);
+    pointer-events: none;
+    transition: 0.3s ease-in-out;
 }
 #container .caja_perfil .perfil{
     width: 100%;
@@ -92,6 +116,7 @@ body{
     align-items: center;
     transition: 0.5s ease;
     opacity: 1; 
+    transition: 0.3s ease-in-out;
 }
 #container .caja_perfil .perfil h2{
     font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -101,6 +126,7 @@ body{
     margin:10px 0px 0px 0px;
     width: fit-content;
     border-bottom: #000000 6px solid;
+    z-index: 3;
 }
 #container .caja_perfil:hover{
     background-image: none;
@@ -108,16 +134,20 @@ body{
     transition: 0.3s ease-in-out;
     box-shadow: 0px 0px 20px 8px #d8c22f;
     border: 1px #d8c22f solid;
+    backdrop-filter: blur(0px);
 }
 #container .caja_perfil .perfil:hover{
     opacity: 0;
     transform: scale(1.5);
     transition: 0.5s ease-in-out;
+    backdrop-filter: blur(0px);
 }
 #container .caja_perfil .perfil img{
     width:50%;
     object-fit: contain;
+    z-index: 3;
 }
+
 #container .caja_cambio{
     grid-column: 1/2;
     grid-row:1/3;
@@ -125,11 +155,27 @@ body{
     align-items: center;
     align-content: center;
     justify-items: center;
-    background-image: url(img/bg.png);
-    background-position: center;
-    background-blend-mode:multiply;
+    background:
+    conic-gradient(at 62.5% 12.5%, #6b6b6b 25%, #0000 0) calc(92px/-8) calc(92px/2),
+    conic-gradient(at 62.5% 12.5%, #6b6b6b 25%, #0000 0) calc(-3*92px/8) calc(92px/4),
+    conic-gradient(at 87.5% 62.5%, #6b6b6b 25%, #0000 0) calc(3*92px/8) calc(92px/4),
+    conic-gradient(at 87.5% 62.5%, #6b6b6b 25%, #0000 0) calc(92px/-8) 0,
+    conic-gradient(at 25% 12.5%, #6b6b6b 25%, #0000 0) 0 calc(92px/-4),
+    conic-gradient(at 25% 12.5%, #6b6b6b 25%, #0000 0) calc(92px/-4) 0,
+    conic-gradient(at 87.5% 87.5%, #6b6b6b 25%, #0000 0) calc(92px/8) 0 #9e9e74;
+    background-size: 92px 92px;
     background-color: var(--contenido_claro);
     position: relative;
+    z-index: 1;
+}
+#container .caja_cambio::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(2px);
+    background-color: rgba(255, 0, 0, 0);
+    pointer-events: none;
 }
 #container .caja_cambio .cambio{
     width: 100%;
@@ -149,10 +195,12 @@ body{
     width: fit-content;
     color: white;
     border-bottom: #d8c22f 6px solid;
+    z-index: 2;
 }
 #container .caja_cambio .cambio img{
     width:50%;
     object-fit: contain;
+    z-index: 2;
 }
 
 
@@ -277,6 +325,7 @@ body{
     text-align: center;
     display: flex;
     position: relative;
+    cursor: pointer;
 }
 #container .contacto button a{
     width: 100%;
@@ -284,7 +333,6 @@ body{
     position: absolute;
     top: 0;
     z-index: 6;
-    cursor: pointer;
 }
 #container .contacto button i{
     font-size: 20px;
@@ -521,12 +569,32 @@ body{
     flex-wrap: wrap;
     align-content:center;
     justify-content: center;
+    background:
+    conic-gradient(at 62.5% 12.5%, #6b6b6b0f 25%, #0000 0) calc(92px/-8) calc(92px/2),
+    conic-gradient(at 62.5% 12.5%, #6b6b6b0f 25%, #0000 0) calc(-3*92px/8) calc(92px/4),
+    conic-gradient(at 87.5% 62.5%, #6b6b6b0f 25%, #0000 0) calc(3*92px/8) calc(92px/4),
+    conic-gradient(at 87.5% 62.5%, #6b6b6b0f 25%, #0000 0) calc(92px/-8) 0,
+    conic-gradient(at 25% 12.5%, #6b6b6b0f 25%, #0000 0) 0 calc(92px/-4),
+    conic-gradient(at 25% 12.5%, #6b6b6b0f 25%, #0000 0) calc(92px/-4) 0,
+    conic-gradient(at 87.5% 87.5%, #6b6b6b0f 25%, #0000 0) calc(92px/8) 0 #9e9e7400;
+    background-size: 92px 92px;
+    position: relative;
+    z-index: 2;
+}
+.modales .modal_perfil aside::before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
 }
 .modales .modal_perfil .contenido{
     width: 60%;
     height: 100vh;
     align-items: center;
     justify-content: center;
+    z-index: 4;
 }
 .modales .modal_perfil .contenido .contenido_texto{
     width: 100%;
@@ -537,13 +605,15 @@ body{
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
+    z-index: 4;
 }
 .modales .modal_perfil .contenido  .contenido_texto h1{
-    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-family: 'Antonio', sans-serif;
     font-weight: bold;
     font-size: 5rem;
     margin: 0px 0px 30px 0px;
     color: var(--titulo);
+    z-index: 4;
 }
 @media (width < 787px) {
     .modales .modal_perfil .contenido  .contenido_texto h1{
@@ -554,22 +624,26 @@ body{
     color: var(--texto);
     margin: 0px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
-    font-weight: lighter;
-    text-align: center;
+    font-weight:normal;
+    text-align:left;
+    font-size: 1.2rem;
+    z-index: 4;
 }
 
 .modales .modal_perfil .img{
     align-items: center;
     justify-content: center;
     width: 40%;
+    z-index: 4;
 }
 .modales .modal_perfil .img .container_img{
     width: 70%;
-
+    z-index: 4;
 }
 .modales .modal_perfil .img .container_img img{
     object-fit: contain;
     width: 100%;
+    z-index: 4;
 }
 
 /*ventana habilidades*/
@@ -768,7 +842,7 @@ body{
 .modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor img{
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit:contain;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor img:hover{
     transform: scale(1.5);
@@ -852,12 +926,17 @@ body{
     width: 45px;
     height: 45px;
 }
-.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor img{
+.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor i{
+    font-size: 40px;
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    margin: 0px;
+    display: grid;
+    place-items: center;
+    color: rgb(94, 90, 90);
+    
 }
-.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor img:hover{
+.modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor i:hover{
     transform: scale(1.5);
     box-shadow: 0px 0px 20px var(--color_icon);    
 }
@@ -873,6 +952,7 @@ body{
 }
 .modal_habilidades .caja_habilidades .level .card_title{
     font-size: 1.8rem;
+    font-family: 'Antonio', sans-serif;
     margin: 0px;   
     color: white;
 }
@@ -891,12 +971,15 @@ body{
     color: white;
     margin: 0px;
     width: 100%;
+    font-family: 'Antonio', sans-serif;
+    font-size: 1.4rem;
 }
 .modal_habilidades .caja_habilidades .level .barra p{
     color:white;
     margin: 0px;
     font-size: 2rem;
     margin-right: 8px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
 }
 .modal_habilidades .caja_habilidades .level .barra .controlador, .modal_habilidades .caja_habilidades .level .barra .controlador::after{
     width: 300px;
@@ -945,6 +1028,7 @@ body{
     height: 100%;
     text-align: center;
     font-size: 2rem;
+    font-family: 'Antonio', sans-serif;
     text-transform: uppercase;
     display: grid;
     place-items: center;
@@ -966,8 +1050,10 @@ body{
 .modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno{
     width:100%;
     height:100%;
+    font-size: 40px;
     display: grid;
     place-items: center;
+    color: rgb(94, 90, 90);
 }
 .modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno:hover{
     box-shadow: 0px 0px 20px var(--color_icon);
@@ -1001,11 +1087,13 @@ body{
     justify-content:space-around;
 }
 .modal_habilidades .caja_habilidades .level_personal .level_personal_uno .level_title{
-    font-size: 1rem;
+    font-size: 1.4rem;
     margin: 0px;   
     width: 50%;
     text-align: center;
     color: white;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    text-transform: capitalize;
 }
 .modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso{
     margin: 0px;

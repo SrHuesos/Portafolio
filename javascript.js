@@ -1,3 +1,29 @@
+var resultado = window.confirm("Se recomienda visualizar el sitio web en un computador o portatil para una mejor experiencia");
+if (resultado === true) {
+    window.alert("Agradezco su atención");
+} else {
+    window.alert("Sigo trabajando para mejorar su experiencia. Agradezco su atención");
+}
+
+document.getElementById('BotonCopiar').addEventListener('click', copiarAlPortapapeles);
+
+  function copiarAlPortapapeles(ev) {
+    var codigoACopiar = document.getElementById('TextoACopiar').textContent;
+    navigator.clipboard.writeText(codigoACopiar)
+      .then(function() {
+        mostrarAlerta("Texto copiado al portapapeles");
+      })
+      .catch(function(err) {
+        mostrarAlerta("No se pudo copiar el texto: " + err);
+      });
+  }
+
+  function mostrarAlerta(mensaje) {
+    // Puedes personalizar la alerta aquí (por ejemplo, usando un modal o un elemento en la página)
+    alert(mensaje);
+  }
+
+
 var openVentana = document.querySelector('.caja_perfil');
 var modales = document.querySelector('.modales');
 var closeVentana = document.querySelector('.back');
