@@ -7,6 +7,10 @@ font-family: 'Yanone Kaffeesatz', sans-serif;*/
 body{
     background-color:rgb(0, 0, 0);
 }
+.cerrar_ventanas{
+    display: none;
+    pointer-events: none;
+}
 :root{
     --contenido_oscuro: rgb(107, 107, 107);
     --contenido_claro: rgb(158, 158, 116);
@@ -1025,7 +1029,55 @@ body{
     position: relative;
     overflow: hidden;
 }
-.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso div::after{
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .photoshop::after{
+    content: "";
+    position: absolute;
+    left: -160px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .illustraitor::after{
+    content: "";
+    position: absolute;
+    left: -200px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .after_efects::after{
+    content: "";
+    position: absolute;
+    left: -170px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .premiere::after{
+    content: "";
+    position: absolute;
+    left: -190px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .html::after{
+    content: "";
+    position: absolute;
+    left: -155px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .css::after{
+    content: "";
+    position: absolute;
+    left: -160px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    animation: barra 2s ease-in-out forwards;
+}
+.modal_habilidades .caja_habilidades .level_personal .level_personal_uno .progreso .ingles::after{
     content: "";
     position: absolute;
     left: -150px;
@@ -1128,55 +1180,62 @@ body{
     grid-template-rows: repeat(5, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
+    margin: 25px;
     }
     
 .trabajos .caja_trabajo .contenido{
     grid-area: 2 / 1 / 5 / 5;
-    background-color: #d8c22f; 
+    background-color: var(--contenido_oscuro); 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     place-items: center;
-    
+    border-radius: 10px;
+    transition: 0.3s ease-in-out;
+}
+.trabajos .caja_trabajo .contenido:hover{
+    background-color: var(--contenido_claro);
 }
 .trabajos .caja_trabajo .contenido .comienzo{
     grid-area: 1 / 1 / 5 / 4;
-    background-color: rebeccapurple;
     position: relative;
     width: 100%;
     height: 350px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     flex-wrap: wrap;
+    padding-left: 50px;
 
 }
 .trabajos .caja_trabajo .contenido .comienzo .titulo{
     position: absolute;
     width: 200px;
     height: 80px;
-    border: 2px solid red;
+    border-radius: 10px;
     background-color: #d8c22f;
     top: -60px;
     display: grid;
     place-items: center;
 }
 .trabajos .caja_trabajo .contenido .comienzo .titulo .titulo_sale{
-    color: #ffffff;
-    background-color: #d8c22f;
+    color: black;
     text-align: center;
+    margin: 0px;
+    font-size: 1.6rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
 }
 .trabajos .caja_trabajo .contenido .comienzo .titulo_contenido{
     display: flex;
     flex-direction: column;
     justify-content: start;
     width: 50%;
-    border: red 2px solid;
     text-align:start;
 }
 .trabajos .caja_trabajo .contenido .comienzo .titulo_contenido .uno{
-    border: red 2px solid;
     margin: 0px;
     padding: 0px;
     font-size: 8rem;
@@ -1185,8 +1244,7 @@ body{
     font-family: 'Antonio', sans-serif;
 }
 .trabajos .caja_trabajo .contenido .comienzo .titulo_contenido .dos{
-    border: red 2px solid;
-    margin: -60px 0px 0px 0px;
+    margin: -50px 0px 0px 0px;
     padding: 0px;
     font-size: 9rem;
     font-weight: bolder;
@@ -1200,74 +1258,98 @@ body{
     text-transform: uppercase;
     font-family: 'Antonio', sans-serif;
     font-weight: bolder;
-    outline: red 2px solid;
 }
 .trabajos .caja_trabajo .contenido .comienzo .info h3{
     font-size: 5rem;
     margin: 10px 0px 0px 0px;
-    border-bottom: #000000 15px solid;
+    border-bottom: #d8c22f 15px solid;
+    border-radius: 10px;
 }
 .trabajos .caja_trabajo .contenido .comienzo .info .tema{
     font-family: 'Yanone Kaffeesatz', sans-serif;
     font-size: 2rem;
     margin: 10px 0px 0px 0px;
 }
+.trabajos .caja_trabajo .contenido .comienzo .info .detalle{
+    font-family: 'Antonio', sans-serif;
+    text-transform: none;
+    margin: 10px 0px 0px 0px;
+    font-size: 1rem;
+    color: black;
+}
 
 
 .trabajos .caja_trabajo .contenido .comienzo .rating{
     position: absolute;
     width: 300px;
-    height: 180px;
-    border: 2px solid red;
+    height: 150px;
     background-color: #d8c22f;
-    bottom: -130px;
+    bottom: -110px;
     display: grid;
     place-items: center;   
+    text-align: center;
+    border-radius: 10px;
 }
 
 
-.trabajos .caja_trabajo .muestra {
-    grid-area: 2 / 4 / 5 / 6;
-    border: red 2px solid;
-    scale: 1.3;
+.trabajos .caja_trabajo .contenido .comienzo .rating .titulo_rating{
+    margin: 0px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
 }
-
+.trabajos .caja_trabajo .contenido .comienzo .rating .texto_rating{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1rem;
+    margin: 0px;
+    align-self: baseline;
+}
 
 /*barra dificultad*/
-.modal_habilidades .caja_habilidades .level .barra{
+.trabajos .caja_trabajo .contenido .comienzo .rating .barra{
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    align-content: center;
+    align-content: start;
     justify-content: center;
     text-align: center;
     width: 100%;
     height: 100%;
     margin: 0px;
+    
 }
-.modal_habilidades .caja_habilidades .level .barra h2{
-    color: white;
+.trabajos .caja_trabajo .contenido .comienzo .rating .barra h2{
+    color: black;
     margin: 0px;
-    width: 100%;
+    width: 50%;
+    margin: 0px 0px 10px 0px;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
 }
-.modal_habilidades .caja_habilidades .level .barra p{
-    color:white;
+.trabajos .caja_trabajo .contenido .comienzo .rating .barra p{
+    color:black;
     margin: 0px;
-    font-size: 2rem;
-    margin-right: 8px;
+    width: 50%;
+    margin: 0px 0px 10px 0px;
+    font-size: 1rem;
+    font-weight: bolder;
+    text-transform: uppercase;
+    font-family: 'Antonio', sans-serif;
 }
-.modal_habilidades .caja_habilidades .level .barra .controlador, .modal_habilidades .caja_habilidades .level .barra .controlador::after{
-    width: 300px;
-    height: 20px;
+.trabajos .caja_trabajo .contenido .comienzo .rating .barra .controlador, .trabajos .caja_trabajo .contenido .comienzo .rating .barra .controlador::after{
+    width: 250px;
+    height: 10px;
     background-color: #bebebe89;
     border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
-.modal_habilidades .caja_habilidades .level .barra .controlador::after{
+.trabajos .caja_trabajo .contenido .comienzo .rating .barra .controlador::after{
     content: "";
     position: absolute;
-    left: -300px;
+    left: -285px;
     background-color: #ffffff;
     border-radius: 10px;
     animation: barra 2s ease-in-out forwards;
@@ -1279,4 +1361,23 @@ body{
     to{
         transform: translateX(var(--controlador_length));
     }
+}
+
+
+.trabajos .caja_trabajo .muestra {
+    grid-area: 2 / 4 / 5 / 6;
+    scale: 1.3;
+    display: flex;
+    align-items:center ;
+    border-radius: 10px;
+}
+.trabajos .caja_trabajo .muestra .contenedor{
+    width: 90%;
+    height: 90%;
+    border-radius: 10px;
+}
+.trabajos .caja_trabajo .muestra .contenedor video{
+    object-fit: contain;
+    width: 100%;
+    height: 100%;
 }
