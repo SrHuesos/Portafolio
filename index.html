@@ -23,7 +23,7 @@
         </div>
         <div class="caja_cambio">
             <figure class="cambio">
-                <img src="img/rostro_on.png" alt="Fotografía de mi persona como foto de perfil" title="Foto perfil">
+                <img src="img/rostro_on.png" alt="Fotografía mia como foto de perfil" title="Foto perfil">
                 <h2>PRODUCTOR MULTIMEDIA</h2>
             </figure>
         </div>
@@ -79,7 +79,7 @@
                 <div class="contenido_texto">
                     <h1>JHOAN BENAVIDES</h1>
                     <p>
-                         ¡Hola! Te doy la bienvenida a mi portafolio. Es un placer tener un visitante por aquí, déjame contarte un poco de mí. Soy tecnólogo en producción multimedia egresado del SENA y actualmente estudiante de Ingeniería Multimedia en la UNAD; me fascina embarcarme en nuevos procesos de aprendizajes y experiencias a nivel personal, académico y laboral. <br> <br>
+                        ¡Hola! Te doy la bienvenida a mi portafolio. Es un placer tener un visitante por aquí, déjame contarte un poco de mí. Soy tecnólogo en producción multimedia egresado del SENA y actualmente estudiante de Ingeniería Multimedia en la UNAD; me fascina embarcarme en nuevos procesos de aprendizajes y experiencias a nivel personal, académico y laboral. <br> <br>
                         En el mundo del diseño he adquirido una experiencia de 6 meses en la Pontificia Universidad Javeriana como practicante productor multimedia, donde aprendí a trabajar con fechas y plazos establecidos por el respectivo grupo de trabajo; continuar mi desarrollo respecto al aprender a aprender  y de manera más técnica desarrolle mis habilidades con el manejo de herramientas de diseño como la suite de adobe realizando piezas gráficas, animaciones e infografías comunicando de manera puntual y precisa la información requerida.
                     </p>
                 </div>
@@ -88,12 +88,13 @@
           
             <aside class="img">
                 <div class="container_img">
-                    <img src="img/rostro_on.png" alt="">
+                    <img src="img/perfil.png" alt="">
                 </div>
             </aside>
 
         </div>
     </section>
+
     <section class="modal_habilidades">
         <header>
             <nav>
@@ -104,42 +105,87 @@
                 </ol>
             </nav>
         </header>
+
+    <!--Ventana mayor informacion de los botones-->
+    <div id="ventana_habilidades_cambio" class="contenedor_bg close">
+        <figure id="ventana_elementos" class="ventana_copia">
+            <div class="contenedor_img">
+                <img src="img/after_effects.png" alt="">
+            </div>
+            <figcaption>
+                Titulo
+            </figcaption>
+            <p class="explicacion">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem impedit labore beatae dolor iusto minima aliquam accusantium modi qui corporis rerum, porro perferendis laudantium voluptate nulla obcaecati alias vel doloribus! Assumenda corporis voluptas fugit non quam dignissimos nesciunt, cum deserunt, consectetur error ad nostrum dicta. Odit corporis vitae vero nemo.
+            </p>
+            <bottom class="btn" onclick= disparador()><i class="fa-solid fa-x"></i></bottom>
+        </figure>
+    </div>    
+
         <div class="caja_habilidades">
             <aside class="personaje">
-                <div class="casilla_1">
+                <div class="casilla_1" onclick="disparador(this.id)" id="p1">
+                    <h2 class="titulo">photoshop</h2>
                     <div class="contenedor">
                         <img src="img/photoshop.png" alt="">
                     </div>
+                    <p>
+                        Me siento seguro con la utilización de la herramienta de Adobe Photoshop en temas de fotomontaje y retoques, aparte de realizar trabajos de piezas gráficas con la aplicación.
+                    </p>
                 </div>
-                <div class="casilla_2">
+                <div class="casilla_2" onclick="disparador(this.id)" id="p2">
+                    <h2 class="titulo">Illustraitor</h2>
                     <div class="contenedor">
                         <img src="img/illustraitor.png" alt="">
                     </div>
+                    <p>
+                        Una herramienta con la que no tengo mucha experticia por el momento, ya que solo la uso para vectorizar objetos para animarlos, pero sí que ando practicando con ella. 
+                    </p>
                 </div>
-                <div class="casilla_3">
+                <div class="casilla_3" onclick="disparador(this.id)" id="p3">
+                    <h2 class="titulo">After Effects</h2>
                     <div class="contenedor">
                         <img src="img/after_effects.png" alt="">
                     </div>
+                    <p>
+                        Con esta herramienta me siento seguro al momento de utilizarla, he realizado animaciones estilo simple motion graphics y animaciones básicas en 2d.
+                    </p>
                 </div>
-                <div class="casilla_4">
+                <div class="casilla_4" onclick="disparador(this.id)" id="p4">
+                    <h2 class="titulo">Premiere</h2>
                     <div class="contenedor">
                         <img src="img/premiere.png" alt="">
                     </div>
+                    <p>
+                        Utilizando la herramienta de Adobe Premiere pro no cuento con una gran experticia, pero sí que manejo fundamentos básicos y técnicos de la preproducción de video. 
+                    </p>
                 </div>
-                <div class="casilla_5">
+                <div class="casilla_5" onclick="disparador(this.id)" id="p5">
+                    <h2 class="titulo">HTML</h2>
                     <div class="contenedor">
                         <img src="img/html_logo.png" alt="">
                     </div>
+                    <p>
+                        Mis conocimientos técnicos y prácticos con HTML en cuanto a semántica y estructura son altos y siempre ando en constante aprendizaje con su documentación. 
+                    </p>
                 </div>
-                <div class="casilla_6">
+                <div class="casilla_6" onclick="disparador(this.id)" id="p6">
+                    <h2 class="titulo">CSS</h2>
                     <div class="contenedor">
                         <img src="img/css_logo.png" alt="">
                     </div>
+                    <p>
+                        Mis conocimientos con la hoja de estilos es buena y en constante actualización de buenas practicas y metodos y/o formas de estilizacion.
+                    </p>
                 </div>
-                <div class="casilla_7">
+                <div class="casilla_7" onclick="disparador(this.id)" id="p7">
+                    <h2 class="titulo">Inglés</h2>
                     <div class="contenedor">
                         <img src="img/ingles_logo.png" alt="">
                     </div>
+                    <p>
+                        Mi nivel de inglés es de B2 certificado, teniendo un mejor desempeño con la lectura de textos en inglés y la escucha del mismo. 
+                    </p>
                 </div>
                 <div class="casilla_8">
                     <div class="contenedor">
@@ -147,7 +193,7 @@
                     </div>
                 </div>
                 <div class="contenedor_img">
-                    <img src="img/foto_perfil.png" alt="">
+                    <img src="img/perfil.png" alt="">
                 </div>
                 <article class="level">
                     <h2 class="card_title">Jhoan Benavides</h2>
@@ -161,10 +207,12 @@
 
             <aside class="inventario">
                 <h2>inventario</h2>
-                <div class="caja_uno photoshop">
+                <div class="caja_uno javascript" onclick="disparador(this.id)" id="p8">
+                    <h2 class="titulo">javascript</h2>
                     <div class="contenedor_uno">
                         <img src="img/js.png" alt="">
                     </div>
+                    <p class="texto">Actualmente, no posees el nivel necesario para integrarlo, requieres un nivel 3 para agregarlo a tus habilidades (en estado de aprendizaje).</p>
                 </div>
                 <div class="caja_uno illustraitor">
                     <div class="contenedor_uno">

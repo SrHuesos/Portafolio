@@ -94,7 +94,6 @@ body{
 #container .caja_perfil:hover{
     opacity: 0;
     transition: 0.5s ease-in-out;
-    backdrop-filter: blur(0px);
 }
 #container .caja_perfil::after{
     content: "";
@@ -117,6 +116,7 @@ body{
     transition: 0.5s ease;
     opacity: 1; 
     transition: 0.3s ease-in-out;
+    cursor:pointer;
 }
 #container .caja_perfil .perfil h2{
     font-family: 'Yanone Kaffeesatz', sans-serif;
@@ -173,7 +173,7 @@ body{
     position: absolute;
     width: 100%;
     height: 100%;
-    backdrop-filter: blur(2px);
+    backdrop-filter: blur(8px);
     background-color: rgba(255, 0, 0, 0);
     pointer-events: none;
 }
@@ -213,6 +213,7 @@ body{
     place-items: center;
     word-break:break-all;
     transition: 0.3s ease-in-out;   
+    cursor:pointer;
 }
 #container .habilidades:hover{
     background-color: var(--contenido_claro);
@@ -353,6 +354,7 @@ body{
     place-items: center;
     word-break:break-all;
     transition: 0.3s ease-in-out;
+    cursor:pointer;
 }
 #container .proyectos:hover{
     background-color: var(--contenido_claro);
@@ -752,12 +754,13 @@ body{
 .modal_habilidades .caja_habilidades .personaje .contenedor_img{
     grid-row: 1/4;
     grid-column: 2/4;
+    display: flex;
     width: 100%;
     height: 100%;
 }
 .modal_habilidades .caja_habilidades .personaje .contenedor_img img{
-    width: 90%;
-    height: 90%;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_1{
@@ -768,6 +771,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_1 .contenedor{
     width: 45px;
@@ -790,6 +794,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_2 .contenedor{
     width: 45px;
@@ -812,6 +817,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_3 .contenedor{
     width: 45px;
@@ -834,6 +840,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_4 .contenedor{
     width: 45px;
@@ -856,6 +863,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_5 .contenedor{
     width: 45px;
@@ -877,6 +885,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_6 .contenedor{
     width: 45px;
@@ -899,6 +908,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_7 .contenedor{
     width: 45px;
@@ -921,6 +931,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer;
 }
 .modal_habilidades .caja_habilidades .personaje .casilla_8 .contenedor{
     width: 45px;
@@ -940,6 +951,85 @@ body{
     transform: scale(1.5);
     box-shadow: 0px 0px 20px var(--color_icon);    
 }
+.modal_habilidades .caja_habilidades .personaje div h2{
+    display: none;
+}
+.modal_habilidades .caja_habilidades .personaje div p{
+    display: none;
+}
+
+/*Ventana mayor información de los botones de habilidades incluyendo imventario*/
+.modal_habilidades .contenedor_bg{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.629);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    z-index: 3;
+    transition: 0.3s ease-in-out;
+}
+.modal_habilidades .contenedor_bg .ventana_copia{
+    display: grid;
+    place-items: center;
+    width: 50%;
+    height: 50%;
+    background-color: var(--contenido_oscuro);
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+.modal_habilidades .contenedor_bg .ventana_copia .contenedor_img{
+    width: 150px;
+    height: 150px;
+}
+.modal_habilidades .contenedor_bg .ventana_copia figcaption{
+    font-family: 'Antonio', sans-serif;
+    font-size: 2rem;
+    border-bottom: #ffffff 10px solid;
+    border-radius: 20px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+.modal_habilidades .contenedor_bg .ventana_copia p{
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    font-size: 1.3rem;
+}
+.modal_habilidades .contenedor_bg .ventana_copia .contenedor_img img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+.modal_habilidades .contenedor_bg .ventana_copia .btn{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: -20px;
+    top: -20px;
+    position: absolute;
+    background-color:red;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+.open{
+    clip-path: circle(71% at 50% 50%);
+    transition: 0.3s ease-in-out;
+}
+.close{
+    clip-path: circle(0% at 50% 50%);   
+    transition: 0.3s ease-in-out;
+}
+
 .modal_habilidades .caja_habilidades .level{
     grid-row: 4/4;
     grid-column: 2/4;
@@ -975,6 +1065,7 @@ body{
     font-size: 1.4rem;
 }
 .modal_habilidades .caja_habilidades .level .barra p{
+    display:initial;
     color:white;
     margin: 0px;
     font-size: 2rem;
@@ -1016,7 +1107,7 @@ body{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 1fr);
-    background-color:rgb(44, 43, 43) ;
+    background-color:var(--barra_nav);
     border-radius: 10px;
     justify-items: center;
     gap: 10px;
@@ -1034,7 +1125,7 @@ body{
     place-items: center;
     color: white;
     justify-self: stretch;
-    background-color: rgb(16, 13, 13);
+    background-color: black;
     
 }
 .modal_habilidades .caja_habilidades .inventario .caja_uno{
@@ -1046,6 +1137,12 @@ body{
     border: #000000 2px solid;
     background-color: #000000;
     border-radius: 10px;
+}
+.modal_habilidades .caja_habilidades .inventario .javascript .titulo{
+    display: none;
+}
+.modal_habilidades .caja_habilidades .inventario .javascript .texto{
+    display: none;
 }
 .modal_habilidades .caja_habilidades .inventario .caja_uno .contenedor_uno{
     width:100%;

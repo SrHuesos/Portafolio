@@ -23,6 +23,34 @@ document.getElementById('BotonCopiar').addEventListener('click', copiarAlPortapa
     alert(mensaje);
   }
 
+  //disparador
+
+function disparador(id){
+    ventana_contenido();
+    cargar_info(id);
+}
+function ventana_contenido(){
+    var ventana = document.getElementById("ventana_habilidades_cambio");
+    ventana.classList.toggle("close");
+    ventana.classList.toggle("open");
+}
+
+function cargar_info(id){
+    //extraer inf
+    var figura = document.getElementById(id);
+
+    var titulo = figura.getElementsByTagName("h2")[0].textContent;
+    var description = figura.getElementsByTagName("p")[0].textContent;
+    var url = figura.getElementsByTagName("img")[0].getAttribute("src");
+
+    //intro
+
+    var ventana = document.getElementById("ventana_elementos");
+    ventana.getElementsByTagName("figcaption")[0].innerHTML = titulo;
+    ventana.getElementsByTagName("p")[0].innerHTML = description;
+    ventana.getElementsByTagName("img")[0].setAttribute("src",url);
+}
+
 
 var openVentana = document.querySelector('.caja_perfil');
 var modales = document.querySelector('.modales');
